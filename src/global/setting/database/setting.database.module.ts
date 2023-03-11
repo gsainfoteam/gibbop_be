@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config/dist';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MealPlan } from 'src/global/entity/MealPlan.entity';
+import { Menu } from 'src/global/entity/Menu.entity';
 import { Restaurant } from 'src/global/entity/Restaurant.entity';
 
 @Module({
@@ -16,7 +17,7 @@ import { Restaurant } from 'src/global/entity/Restaurant.entity';
         username: configService.get<string>('MYSQL_DATABASE_USERNAME'),
         password: configService.get<string>('MYSQL_DATABASE_PASSWORD'),
         database: configService.get<string>('MYSQL_DATABASE_NAME'),
-        entities: [Restaurant, MealPlan],
+        entities: [Restaurant, MealPlan, Menu],
         synchronize: true,
       }),
     }),
